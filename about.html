@@ -40,6 +40,7 @@
 									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 									<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 									<li><a href="#"><i class="fa fa-behance"></i></a></li>
+									<li><div id="google_translate_element"></div></li>
 				  				</ul>
 				  			</div>
 				  			<div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
@@ -344,11 +345,11 @@
 								<div class="row">
 									<div class="col">
 										<ul>
-											<li><a href="#">Home</a></li>
-											<li><a href="#">About</a></li>
-											<li><a href="#">Services</a></li>
-											<li><a href="#">learn</a></li>
-											<li><a href="#">Contact</a></li>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="about.html">About</a></li>
+											<li><a href="servc.html">Services</a></li>
+											<li><a href="learn.html">learn</a></li>
+											<li><a href="contact.html">Contact</a></li>
 										</ul>
 									</div>
 																		
@@ -402,5 +403,14 @@
     		<script src="js/jquery.circlechart.js"></script>								
 			<script src="js/mail-script.js"></script>	
 			<script src="js/main.js"></script>	
+			<script type="text/javascript">
+				$($('span:contains("Select Language")')[1]).html('german')
+					function googleTranslateElementInit() {
+	  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'de,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+	
+					}
+					</script>
+				
+				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 		</body>
 	</html>
