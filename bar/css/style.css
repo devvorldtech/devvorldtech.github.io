@@ -3262,3 +3262,14 @@ strong.logo-2 {
 	font-family: 'Open Sans', sans-serif;
 	font-family: 'Oranienbaum', serif;
 }
+/* video */
+.cp_side-menu{
+	display: none;
+}
+
+.hmm{
+	font-family: 'Dancing Script', cursive;
+}
+.hmm h1{
+	font-size: 80px;
+}
