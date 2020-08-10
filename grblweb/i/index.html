@@ -97,7 +97,7 @@
          </div>
       </div>
       <!-- NEW CODE -->
-      <div class="container-fluid">
+      <div class="container-fluid" style="margin-top: 13px;">
          <div class="row text-center">
             <div class="col-sm-8">
                <!-- YOUR CAMERA -->
@@ -107,11 +107,12 @@
             <div class="col-sm-4 text-center">
                <h1 >POSITION</h1>
                <div class="row">
-                  <div class="col-sm-4">
+                  <div class="col-sm-3">
                      <center>
-                        <div id="wX" style="text-align: left; padding-left: 15px; margin: 4px; font-size: 20px; width: 190px; border: 1px solid #aaa; font-weight: bold;">X: 0.000</div>
-                        <div id="wY" style="text-align: left; padding-left: 15px; margin: 4px; font-size: 20px; width: 190px; border: 1px solid #aaa; font-weight: bold;">Y: 0.000</div>
-                        <div id="wZ" style="text-align: left; padding-left: 15px; margin: 4px; font-size: 20px; width: 190px; border: 1px solid #aaa; font-weight: bold;">Z: 0.000</div>
+                        <b style="margin-right: 10px;">X:</b><input id="wX"   placeholder="X" style="width: 105px;" type="text" value="0.000"><br>
+                        <b  style="margin-right: 10px;">Y:</b><input id="wY"   placeholder="Y" style="width: 105px;" type="text" value="0.000"><br>
+                        <b  style="margin-right: 10px;">Z:</b><input id="wZ"   placeholder="Z" style="width: 105px;" type="text" value="0.000">
+                    
                      </center>
                   </div>
                   <div class="col-sm-2" style="
@@ -149,11 +150,11 @@
                   <div>
                   </div>
                   <!-- counter -->
-                  <div style="position: absolute;bottom: 0;left: 0;width: 100px;">
-                     <input style="width: 105px;" type="number"step=".01" value="0">
-                     <input style="width: 105px;" type="number"step=".01" value="0">
-                     <input style="width: 105px;" type="number"step=".01" value="0">
-                  </div>
+                  <!-- <div style="position: absolute;bottom: 0;left: 0;width: 100px;"> -->
+                     <input style="width: 105px;margin-top: 15px;" type="number"step=".01" value="0.1">
+                     <input style="width: 105px;" type="number"step=".01" value="1.0">
+                     <input style="width: 105px;" type="number"step=".01" value="10">
+                  <!-- </div> -->
                   <!-- END COUNTER -->
                </div>
                <div style="margin-top: 20px;">
