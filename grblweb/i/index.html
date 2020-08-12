@@ -340,6 +340,12 @@
          button{
          outline: none!important;
          }
+         option.placeholder{
+    display:none;
+}
+#delete{
+    cursor:pointer;
+}
       </style>
    </head>
    <body>
@@ -527,36 +533,16 @@
                   </div>
                </div>
                <div style="margin-top: 20px;">
-                  <button onclick="clearValue();" >CLEAR ALL</button>
-                  <button onclick="getInputValue();">STORE</button>
+                  <button onclick="clearAll();" >CLEAR ALL</button>
+                  <button onclick="addvaluetstorage();">STORE</button>
                </div>
                <!-- <input  style="margin-top: 10px;" type="text" value="0"> -->
-               <div style="display: flex;
-               justify-content: center;
-               align-items: center;
-               flex-direction: column;">
-               <div id="wXv" style="    text-align: left;
-                  padding-left: 15px;
-                  margin: 4px;
-                  font-size: 18px;
-                  width: 190px;
-                  border: 1px solid #aaa;
-                  font-weight: bold;">X: 0.000</div>
-               <div id="wYv" style="    text-align: left;
-                  padding-left: 15px;
-                  margin: 4px;
-                  font-size: 18px;
-                  width: 190px;
-                  border: 1px solid #aaa;
-                  font-weight: bold;">Y: 0.000</div>
-               <div id="wZv" style="    text-align: left;
-                  padding-left: 15px;
-                  margin: 4px;
-                  font-size: 18px;
-                  width: 190px;
-                  border: 1px solid #aaa;
-                  font-weight: bold;">Z: 0.000</div>
-                  </div>
+               <select  id="filename" style="margin-top: 10px;width: 100px;">
+               <option>select</option>
+                  
+               </select>
+               <span id="delete" >✖</span>
+            
             </div>
          </div>
          <!-- STATUS -->
@@ -652,38 +638,87 @@
       </div>
       </div>
       <script>
-         function getInputValue(){
-             // Selecting the input element and get its value 
-             var wX = document.getElementById("wX").value;
-             var s ="X: "+wX
-            document.getElementById("wXv").innerHTML = s
+           
+            let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+            localStorage.setItem('items', JSON.stringify(itemsArray));
+            const data = JSON.parse(localStorage.getItem('items'));
+            const select = document.querySelector('select');
+const optMaker = (text) => {
+  const option = document.createElement('option');
+  option.textContent = text;
+  select.appendChild(option);
+}
 
-            var wY = document.getElementById("wY").value;
-             var s1 ="Y: "+wY
-            document.getElementById("wYv").innerHTML = s1
 
-            var wZ = document.getElementById("wZ").value;
-             var s2 ="Z: "+wZ
-            document.getElementById("wZv").innerHTML = s2
+
+         function addvaluetstorage (){
+            var wX = document.getElementById("wX").value;
+           var wY = document.getElementById("wY").value;
+           var wZ = document.getElementById("wZ").value;
+           var sss= `00${itemsArray.length+1} x:${wX} y:${wY} z:${wZ} `
+           itemsArray.push(sss);
+        
+  localStorage.setItem('items', JSON.stringify(itemsArray));
+  optMaker(sss);
+         }
+
+data.forEach(item => {
+   optMaker(item);
+});
+
+
+function clearAll(){
+
+   localStorage.clear();
+  while (select.firstChild) {
+   select.removeChild(select.firstChild);
+  }
+  itemsArray = [];
+}
+var del = document.getElementById('delete'),
+    sel = document.getElementById('filename');
+del.onclick = function(){
+    var opt = sel.options[sel.selectedIndex];
+   //  console.log(opt.value,data,"|optoptopt")
+   //  data.find((i,item)=>{
+   //     console.log(item,i,i==opt.value)
+   //  })
+    if(opt.className !== 'placeholder'){
+        sel.removeChild(opt);
+    }
+};
+      //    function getInputValue(){
+      //        // Selecting the input element and get its value 
+      //        var wX = document.getElementById("wX").value;
+      //        var s ="X: "+wX
+      //       document.getElementById("wXv").innerHTML = s
+
+      //       var wY = document.getElementById("wY").value;
+      //        var s1 ="Y: "+wY
+      //       document.getElementById("wYv").innerHTML = s1
+
+      //       var wZ = document.getElementById("wZ").value;
+      //        var s2 ="Z: "+wZ
+      //       document.getElementById("wZv").innerHTML = s2
          
             
            
             
            
-         }
-         function clearValue(){
-            var x="X: 0.000"
-            var y="Y: 0.000"
-            var z="Z: 0.000"
+      //    }
+      //    function clearValue(){
+      //       var x="X: 0.000"
+      //       var y="Y: 0.000"
+      //       var z="Z: 0.000"
 
            
-            document.getElementById("wXv").innerHTML = x
+      //       document.getElementById("wXv").innerHTML = x
 
            
-            document.getElementById("wYv").innerHTML = y
+      //       document.getElementById("wYv").innerHTML = y
 
-            document.getElementById("wZv").innerHTML = z
-      }
+      //       document.getElementById("wZv").innerHTML = z
+      // }
       </script>
    </body>
 </html>
